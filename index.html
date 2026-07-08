@@ -3,748 +3,462 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rotaract Club de João Pinheiro</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+<title>Rotaract Club de João Pinheiro — Jovens transformando a cidade</title>
+<meta name="description" content="Rotaract Club de João Pinheiro: voluntariado, amizade e liderança para jovens de 18 a 30 anos. Venha fazer o bem com a gente!">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --rose: #d13467;
-    --rose-light: #f48fb1;
-    --rose-pale: #fce4ec;
-    --rose-deep: #d13467;
-    --white: #ffffff;
-    --off-white: #fff5f8;
-    --gray: #6b7280;
-    --dark: #1a1a2e;
-  }
+:root{
+  --rose:#d41367;
+  --rose-light:#f48fb1;
+  --rose-pale:#fce4ec;
+  --dark:#1a1a2e;
+  --off-white:#fff5f8;
+  --white:#ffffff;
+  --whatsapp:#25D366;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Nunito',sans-serif;
+  background:var(--off-white);
+  color:var(--dark);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:700;line-height:1.2}
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+/* NAV */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(255,245,248,0.95);
+  backdrop-filter:blur(10px);
+  box-shadow:0 2px 20px rgba(212,19,103,0.08);
+  padding:14px 0;
+}
+.nav-container{
+  max-width:1200px;margin:0 auto;padding:0 24px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--dark)}
+.nav-logo img{width:300px;height:auto}
+.nav-logo-text{font-family:'Playfair Display',serif;font-weight:700;font-size:20px;color:var(--rose)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{
+  text-decoration:none;color:var(--dark);font-weight:600;font-size:15px;
+  transition:color .25s ease;position:relative;
+}
+.nav-links a::after{
+  content:'';position:absolute;left:0;bottom:-4px;width:0;height:2px;
+  background:var(--rose);transition:width .25s ease;
+}
+.nav-links a:hover{color:var(--rose)}
+.nav-links a:hover::after{width:100%}
 
-  html { scroll-behavior: smooth; }
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;align-items:center;justify-content:center}
+.hamburger svg{width:28px;height:28px;stroke:var(--rose)}
 
-  body {
-    font-family: 'Nunito', sans-serif;
-    background: var(--white);
-    color: var(--dark);
-    overflow-x: hidden;
-  }
+.mobile-menu{
+  position:fixed;inset:0;z-index:200;background:rgba(26,26,46,0.55);
+  display:flex;justify-content:flex-end;
+  opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease;
+}
+.mobile-menu.open{opacity:1;visibility:visible}
+.mobile-menu-panel{
+  width:min(80%,320px);height:100%;background:var(--off-white);
+  padding:80px 28px 28px;display:flex;flex-direction:column;gap:8px;
+  transform:translateX(100%);transition:transform .3s ease;
+  box-shadow:-10px 0 40px rgba(0,0,0,0.15);
+}
+.mobile-menu.open .mobile-menu-panel{transform:translateX(0)}
+.mobile-menu-close{
+  position:absolute;top:20px;right:20px;background:none;border:none;cursor:pointer;
+  width:40px;height:40px;display:flex;align-items:center;justify-content:center;
+}
+.mobile-menu-close svg{width:26px;height:26px;stroke:var(--rose)}
+.mobile-menu a{
+  text-decoration:none;color:var(--dark);font-weight:700;font-size:18px;
+  padding:14px 12px;border-radius:10px;transition:background .2s ease,color .2s ease;
+}
+.mobile-menu a:hover{background:var(--rose-pale);color:var(--rose)}
 
-  /* NAV */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    background: rgba(255,255,255,0.95);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(214,51,132,0.15);
-    padding: 14px 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .nav-logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    font-size: 1.1rem;
-    color: var(--rose);
-  }
-  .nav-logo svg { width: 32px; height: 32px; }
-  .nav-links {
-    display: flex;
-    gap: 28px;
-    list-style: none;
-  }
-  .nav-links a {
-    text-decoration: none;
-    color: var(--dark);
-    font-weight: 600;
-    font-size: 0.85rem;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--rose); }
+/* HERO */
+.hero{
+  position:relative;
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  text-align:center;padding:120px 24px 80px;
+  background:linear-gradient(135deg,#fce4ec 0%,#f8bbd0 45%,#f48fb1 100%);
+  overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;top:-100px;right:-100px;width:400px;height:400px;
+  background:radial-gradient(circle,rgba(255,255,255,0.35) 0%,transparent 70%);border-radius:50%;
+}
+.hero::after{
+  content:'';position:absolute;bottom:-120px;left:-120px;width:420px;height:420px;
+  background:radial-gradient(circle,rgba(209,52,103,0.18) 0%,transparent 70%);border-radius:50%;
+}
+.hero-content{position:relative;z-index:2;max-width:860px}
+.hero-logo{max-width:300px;display:block;margin:0 auto 24px}
+.badge{
+  display:inline-block;background:rgba(255,255,255,0.7);color:var(--rose);
+  padding:8px 20px;border-radius:50px;font-weight:700;font-size:14px;
+  margin-bottom:24px;backdrop-filter:blur(6px);
+}
+.hero h1{
+  font-size:clamp(2rem,5vw,3.6rem);color:var(--dark);margin-bottom:18px;
+}
+.hero .subheadline{
+  font-size:clamp(1rem,2.2vw,1.3rem);color:var(--dark);opacity:.85;
+  font-weight:600;margin-bottom:36px;
+}
+.hero-cta{
+  display:inline-block;background:var(--whatsapp);color:#fff;
+  text-decoration:none;padding:16px 36px;border-radius:50px;
+  font-weight:800;font-size:17px;box-shadow:0 10px 30px rgba(37,211,102,0.35);
+  transition:transform .25s ease,box-shadow .25s ease;
+}
+.hero-cta:hover{transform:translateY(-3px);box-shadow:0 14px 36px rgba(37,211,102,0.45)}
+.micro-text{margin-top:14px;font-size:14px;color:var(--dark);opacity:.75;font-weight:600}
+.hero-stats{
+  display:flex;justify-content:center;gap:48px;margin-top:48px;flex-wrap:wrap;
+}
+.stat{text-align:center}
+.stat-num{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:800;color:var(--rose)}
+.stat-label{font-size:13px;font-weight:700;color:var(--dark);opacity:.7;text-transform:uppercase;letter-spacing:1px}
 
-  /* HERO */
-  .hero {
-    min-height: 100vh;
-    background: linear-gradient(135deg, var(--rose-pale) 0%, #fff 50%, #fce4ec 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-    padding: 100px 40px 60px;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: -100px; right: -100px;
-    width: 500px; height: 500px;
-    background: radial-gradient(circle, rgba(214,51,132,0.12) 0%, transparent 70%);
-    border-radius: 50%;
-  }
-  .hero::after {
-    content: '';
-    position: absolute;
-    bottom: -80px; left: -80px;
-    width: 400px; height: 400px;
-    background: radial-gradient(circle, rgba(244,143,177,0.15) 0%, transparent 70%);
-    border-radius: 50%;
-  }
-  .hero-inner {
-    max-width: 1100px;
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
-    position: relative;
-    z-index: 2;
-  }
-  .hero-text .badge {
-    display: inline-block;
-    background: var(--rose);
-    color: white;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    padding: 6px 16px;
-    border-radius: 100px;
-    margin-bottom: 20px;
-  }
-  .hero-text h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.4rem, 5vw, 3.8rem);
-    font-weight: 900;
-    line-height: 1.1;
-    color: var(--dark);
-    margin-bottom: 12px;
-  }
-  .hero-text h1 span { color: var(--rose); }
-  .hero-text .tagline {
-    font-size: 1.15rem;
-    color: var(--rose-deep);
-    font-weight: 700;
-    font-style: italic;
-    letter-spacing: 0.05em;
-    margin-bottom: 20px;
-  }
-  .hero-text p {
-    font-size: 1rem;
-    color: var(--gray);
-    line-height: 1.7;
-    margin-bottom: 36px;
-  }
-  .hero-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: var(--rose);
-    color: white;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 0.95rem;
-    padding: 14px 32px;
-    border-radius: 100px;
-    transition: all 0.3s;
-    box-shadow: 0 8px 30px rgba(214,51,132,0.35);
-  }
-  .hero-cta:hover {
-    background: var(--rose-deep);
-    transform: translateY(-2px);
-    box-shadow: 0 12px 40px rgba(214,51,132,0.45);
-  }
-  .hero-visual {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-  }
-  .hero-logo-wrap {
-    background: white;
-    border-radius: 24px;
-    padding: 30px 40px;
-    box-shadow: 0 20px 60px rgba(214,51,132,0.15);
-    text-align: center;
-  }
-  .hero-logo-wrap img {
-    max-width: 340px;
-    width: 100%;
-    
-  }
-  .hero-stats {
-    display: flex;
-    gap: 30px;
-    margin-top: 40px;
-    flex-wrap: wrap;
-  }
-  .stat {
-    text-align: center;
-  }
-  .stat-num {
-    display: block;
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem;
-    font-weight: 900;
-    color: var(--rose);
-  }
-  .stat-label {
-    font-size: 0.75rem;
-    color: var(--gray);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
+/* HERO SUNFLOWER */
+.hero-sunflower{position:absolute;bottom:0;left:0;width:140px;height:140px;opacity:.08;pointer-events:none;z-index:1;color:var(--rose)}
 
-  /* SECTIONS BASE */
-  section { padding: 90px 40px; }
-  .container { max-width: 1100px; margin: 0 auto; }
-  .section-label {
-    display: inline-block;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--rose);
-    margin-bottom: 10px;
-  }
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 900;
-    color: var(--dark);
-    margin-bottom: 16px;
-    line-height: 1.2;
-  }
-  .section-title span { color: var(--rose); }
-  .section-sub {
-    font-size: 1rem;
-    color: var(--gray);
-    line-height: 1.7;
-    max-width: 600px;
-    margin-bottom: 50px;
-  }
-  .divider {
-    width: 60px; height: 4px;
-    background: linear-gradient(to right, var(--rose), var(--rose-light));
-    border-radius: 4px;
-    margin-bottom: 24px;
-  }
+/* SECTIONS */
+.section{padding:90px 24px;max-width:1200px;margin:0 auto}
+.section-title{text-align:center;font-size:clamp(1.8rem,4vw,2.6rem);color:var(--dark);margin-bottom:12px}
+.section-subtitle{text-align:center;color:var(--dark);opacity:.7;font-size:1.05rem;max-width:640px;margin:0 auto 56px;font-weight:600}
+.divider{
+  width:80px;height:4px;background:var(--rose);margin:0 auto 24px;border-radius:2px;
+}
 
-  /* QUEM SOMOS */
-  #quem-somos {
-    background: var(--white);
-  }
-  .quem-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
-  }
-  .quem-cards {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-top: 30px;
-  }
-  .info-card {
-    background: var(--rose-pale);
-    border-radius: 16px;
-    padding: 20px;
-    border-left: 4px solid var(--rose);
-  }
-  .info-card h4 {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--rose);
-    font-weight: 700;
-    margin-bottom: 6px;
-  }
-  .info-card p {
-    font-size: 0.9rem;
-    color: var(--dark);
-    font-weight: 600;
-  }
-  .quem-visual {
-    background: linear-gradient(135deg, var(--rose-pale), #fff);
-    border-radius: 24px;
-    padding: 40px;
-    text-align: center;
-    box-shadow: 0 10px 40px rgba(214,51,132,0.1);
-    position: relative;
-    overflow: hidden;
-  }
-  .quem-visual::before {
-    content: '❝';
-    position: absolute;
-    top: 10px; left: 20px;
-    font-size: 5rem;
-    color: rgba(214,51,132,0.1);
-    font-family: serif;
-    line-height: 1;
-  }
-  .quem-visual blockquote {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--rose-deep);
-    line-height: 1.5;
-    font-style: italic;
-    position: relative;
-    z-index: 1;
-  }
+/* O QUE FAZEMOS */
+.cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.card{
+  background:var(--white);border:1px solid var(--rose-pale);border-radius:18px;
+  padding:32px 26px;transition:transform .3s ease,box-shadow .3s ease;
+}
+.card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(209,52,103,0.14)}
+.card-icon{font-size:38px;margin-bottom:16px}
+.card h3{font-size:1.3rem;color:var(--rose);margin-bottom:10px}
+.card p{color:var(--dark);opacity:.8;font-size:15px}
 
-  /* O QUE FAZEMOS */
-  #o-que-fazemos {
-    background: var(--off-white);
-  }
-  .fazemos-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    margin-top: 10px;
-  }
-  .fazer-card {
-    background: white;
-    border-radius: 20px;
-    padding: 32px 24px;
-    text-align: center;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-    transition: all 0.3s;
-    border-top: 4px solid transparent;
-  }
-  .fazer-card:hover {
-    transform: translateY(-6px);
-    border-top-color: var(--rose);
-    box-shadow: 0 16px 40px rgba(214,51,132,0.15);
-  }
-  .fazer-icon {
-    width: 64px; height: 64px;
-    background: var(--rose-pale);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 20px;
-    font-size: 1.8rem;
-  }
-  .fazer-card h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--dark);
-    margin-bottom: 10px;
-  }
-  .fazer-card p {
-    font-size: 0.88rem;
-    color: var(--gray);
-    line-height: 1.6;
-  }
+/* QUEM SOMOS */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.about-text h2{font-size:2.2rem;color:var(--dark);margin-bottom:16px}
+.about-text p{color:var(--dark);opacity:.8;margin-bottom:16px;font-size:16px}
+.social-indicators{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:32px;
+}
+.social-ind{
+  background:linear-gradient(135deg,var(--rose-pale),#fff);
+  border:1px solid var(--rose-light);border-radius:14px;padding:18px 12px;text-align:center;
+}
+.social-ind-num{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:800;color:var(--rose)}
+.social-ind-label{font-size:12px;font-weight:700;color:var(--dark);opacity:.75;margin-top:4px}
+.info-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px}
+.info-card{
+  background:var(--white);border-left:4px solid var(--rose);border-radius:10px;
+  padding:16px 18px;box-shadow:0 4px 14px rgba(209,52,103,0.06);
+}
+.info-card strong{display:block;color:var(--rose);font-size:13px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
+.info-card span{color:var(--dark);font-weight:600;font-size:15px}
+blockquote{
+  border-left:4px solid var(--rose-light);padding:16px 22px;
+  background:var(--rose-pale);border-radius:0 12px 12px 0;
+  font-style:italic;color:var(--dark);font-size:16px;
+}
 
-  /* MASCOTE */
-  #mascote {
-    background: linear-gradient(135deg, var(--rose) 0%, var(--rose-deep) 100%);
-    color: white;
-    position: relative;
-    overflow: hidden;
-  }
-  #mascote::before {
-    content: '';
-    position: absolute;
-    top: -80px; right: -80px;
-    width: 400px; height: 400px;
-    background: rgba(255,255,255,0.05);
-    border-radius: 50%;
-  }
-  #mascote::after {
-    content: '';
-    position: absolute;
-    bottom: -60px; left: -60px;
-    width: 300px; height: 300px;
-    background: rgba(255,255,255,0.05);
-    border-radius: 50%;
-  }
-  .mascote-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
-    position: relative;
-    z-index: 2;
-  }
-  .mascote-img-wrap {
-    text-align: center;
-  }
-  .mascote-img-wrap img {
-    max-width: 480px;
-    width: 100%;
-    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.3));
-    animation: float 3s ease-in-out infinite;
-  }
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
-  }
-  #mascote .section-label { color: rgba(255,255,255,0.7); }
-  #mascote .section-title { color: white; }
-  #mascote .section-title span { color: #fce4ec; }
-  #mascote .divider { background: rgba(255,255,255,0.4); }
-  .mascote-text p {
-    color: rgba(255,255,255,0.88);
-    line-height: 1.8;
-    font-size: 1rem;
-    margin-bottom: 20px;
-  }
-  .mascote-traits {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 24px;
-  }
-  .trait {
-    background: rgba(255,255,255,0.15);
-    border: 1px solid rgba(255,255,255,0.25);
-    color: white;
-    padding: 8px 18px;
-    border-radius: 100px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    backdrop-filter: blur(4px);
-  }
+/* AÇÕES */
+.actions-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.action-card{
+  background:var(--white);border:1px solid var(--rose-pale);border-radius:18px;
+  padding:28px;transition:transform .3s ease,box-shadow .3s ease;
+}
+.action-card:hover{transform:translateY(-5px);box-shadow:0 14px 36px rgba(209,52,103,0.12)}
+.action-card h3{color:var(--rose);font-size:1.3rem;margin-bottom:10px}
+.action-card p{color:var(--dark);opacity:.8;margin-bottom:16px;font-size:15px}
+.action-cta{
+  display:inline-block;color:var(--whatsapp);text-decoration:none;font-weight:800;font-size:15px;
+  transition:opacity .2s ease;
+}
+.action-cta:hover{opacity:.75}
 
-  /* AÇÕES */
-  #acoes {
-    background: white;
-  }
-  .acoes-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 28px;
-  }
-  .acao-card {
-    background: var(--off-white);
-    border-radius: 20px;
-    padding: 32px;
-    position: relative;
-    transition: all 0.3s;
-    overflow: hidden;
-  }
-  .acao-card::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 4px;
-    background: linear-gradient(to right, var(--rose), var(--rose-light));
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s;
-  }
-  .acao-card:hover::after { transform: scaleX(1); }
-  .acao-card:hover {
-    box-shadow: 0 10px 30px rgba(214,51,132,0.12);
-    transform: translateY(-3px);
-  }
-  .acao-year {
-    display: inline-block;
-    background: var(--rose);
-    color: white;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 4px 12px;
-    border-radius: 100px;
-    margin-bottom: 14px;
-  }
-  .acao-card h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--dark);
-    margin-bottom: 10px;
-  }
-  .acao-card p {
-    font-size: 0.88rem;
-    color: var(--gray);
-    line-height: 1.65;
-  }
-  .acao-icon {
-    font-size: 2rem;
-    margin-bottom: 14px;
-    display: block;
-  }
+/* MASCOTE */
+.mascote-section{
+  position:relative;
+  background:linear-gradient(135deg,#fce4ec 0%,#f8bbd0 100%);
+  padding:90px 24px;
+}
+.mascote-container{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1.4fr;gap:48px;align-items:center}
+.mascote-visual{display:flex;flex-direction:column;align-items:center;justify-content:center}
+.mascote-circle{
+  width:320px;height:320px;border-radius:50%;
+  background:radial-gradient(circle at 30% 30%,#fff,var(--rose-pale));
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 20px 50px rgba(209,52,103,0.25);
+  animation:float 4s ease-in-out infinite;
+}
+.mascote-emoji{width:85%;height:85%;object-fit:contain;display:block}
+.mascote-name{font-family:'Playfair Display',serif;font-size:2rem;color:var(--rose);margin-top:20px;font-weight:800}
+.mascote-tag{font-size:14px;color:var(--dark);opacity:.7;font-weight:600;margin-top:4px}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+.mascote-text h2{font-size:2.2rem;color:var(--dark);margin-bottom:16px}
+.mascote-text p{color:var(--dark);opacity:.85;margin-bottom:16px;font-size:16px}
+.mascote-traits{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.trait{
+  background:rgba(255,255,255,0.7);color:var(--rose);padding:8px 16px;
+  border-radius:50px;font-weight:700;font-size:14px;
+}
 
-  /* CONTATO */
-  #contato {
-    background: var(--off-white);
-    text-align: center;
-  }
-  .contato-box {
-    background: white;
-    border-radius: 28px;
-    padding: 60px 50px;
-    max-width: 620px;
-    margin: 0 auto;
-    box-shadow: 0 20px 60px rgba(214,51,132,0.1);
-  }
-  .contato-box .section-title { margin-bottom: 12px; }
-  .contato-box p {
-    color: var(--gray);
-    font-size: 1rem;
-    line-height: 1.7;
-    margin-bottom: 36px;
-  }
-  .whatsapp-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    background: #d41367;
-    color: white;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 1rem;
-    padding: 16px 36px;
-    border-radius: 100px;
-    transition: all 0.3s;
-    box-shadow: 0 8px 30px rgba(212,19,103,0.35);
-  }
-  .whatsapp-btn:hover {
-    background: #b01058;
-    transform: translateY(-2px);
-    box-shadow: 0 12px 40px rgba(212,19,103,0.45);
-  }
-  .whatsapp-btn svg { width: 24px; height: 24px; fill: white; }
-  .social-links {
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-  }
-  .social-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--rose);
-    font-size: 0.85rem;
-    font-weight: 700;
-    text-decoration: none;
-    transition: opacity 0.2s;
-  }
-  .social-link:hover { opacity: 0.75; }
+/* MASCOTE SUNFLOWER */
+.mascote-sunflower{position:absolute;top:0;right:0;width:100px;height:100px;opacity:.06;pointer-events:none;z-index:1;color:var(--rose)}
 
-  /* FOOTER */
-  footer {
-    background: var(--dark);
-    color: rgba(255,255,255,0.6);
-    text-align: center;
-    padding: 30px 40px;
-    font-size: 0.83rem;
-  }
-  footer span { color: var(--rose-light); font-weight: 700; }
+/* CONTATO */
+.contato-box{
+  background:var(--white);border:1px solid var(--rose-pale);border-radius:22px;
+  padding:48px 36px;text-align:center;max-width:680px;margin:0 auto;
+  box-shadow:0 14px 40px rgba(209,52,103,0.1);
+}
+.contato-box h2{font-size:2rem;color:var(--dark);margin-bottom:12px}
+.contato-box p{color:var(--dark);opacity:.8;margin-bottom:28px;font-size:16px}
+.contato-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:24px}
+.btn-membro,.btn-apoiar{
+  text-decoration:none;padding:15px 28px;border-radius:50px;font-weight:800;font-size:15px;
+  transition:transform .25s ease,box-shadow .25s ease;flex:1;min-width:220px;
+}
+.btn-membro{background:var(--whatsapp);color:#fff;box-shadow:0 8px 24px rgba(37,211,102,0.3)}
+.btn-membro:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(37,211,102,0.4)}
+.btn-apoiar{background:var(--rose);color:#fff;box-shadow:0 8px 24px rgba(209,52,103,0.3)}
+.btn-apoiar:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(209,52,103,0.4)}
+.instagram-link{
+  display:inline-flex;align-items:center;gap:8px;color:var(--rose);text-decoration:none;
+  font-weight:700;font-size:15px;transition:opacity .2s ease;
+}
+.instagram-link:hover{opacity:.75}
+.instagram-link svg{width:22px;height:22px}
 
-  /* ANIMATIONS */
-  .fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-  .fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* FOOTER */
+.footer{background:var(--dark);color:#fff;padding:48px 24px;text-align:center}
+.footer-logo{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--rose-light);margin-bottom:10px}
+.footer-logo-img{width:300px;height:auto;margin-bottom:10px;display:block;margin-left:auto;margin-right:auto}
+.footer p{opacity:.7;font-size:14px;margin-bottom:6px}
+.footer .footer-copy{margin-top:20px;font-size:13px;opacity:.5}
 
-  @media (max-width: 768px) {
-    nav { padding: 14px 20px; }
-    .nav-links { display: none; }
-    section { padding: 60px 20px; }
-    .hero { padding: 100px 20px 60px; }
-    .hero-inner,
-    .quem-grid,
-    .mascote-grid { grid-template-columns: 1fr; gap: 40px; }
-    .fazemos-grid { grid-template-columns: 1fr; }
-    .acoes-grid { grid-template-columns: 1fr; }
-    .hero-logo-wrap img { max-width: 240px; }
-    .contato-box { padding: 40px 24px; }
-    .quem-cards { grid-template-columns: 1fr; }
-    .hero-stats { justify-content: center; }
-  }
+/* WHATSAPP FLOATING */
+.whatsapp-float{
+  position:fixed;bottom:24px;right:24px;z-index:1000;
+  width:60px;height:60px;border-radius:50%;background:var(--whatsapp);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 24px rgba(37,211,102,0.4);
+  text-decoration:none;animation:pulse 2.4s infinite;
+}
+.whatsapp-float svg{width:32px;height:32px;fill:#fff}
+@keyframes pulse{
+  0%{box-shadow:0 8px 24px rgba(37,211,102,0.4),0 0 0 0 rgba(37,211,102,0.5)}
+  70%{box-shadow:0 8px 24px rgba(37,211,102,0.4),0 0 0 18px rgba(37,211,102,0)}
+  100%{box-shadow:0 8px 24px rgba(37,211,102,0.4),0 0 0 0 rgba(37,211,102,0)}
+}
+
+/* FADE-IN */
+.fade-in{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .cards-grid{grid-template-columns:repeat(2,1fr)}
+  .testimonials-grid{grid-template-columns:1fr}
+  .mascote-container{grid-template-columns:1fr;text-align:center}
+  .mascote-traits{justify-content:center}
+}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .hero{padding:110px 20px 60px}
+  .hero-stats{gap:28px}
+  .stat-num{font-size:1.8rem}
+  .cards-grid{grid-template-columns:1fr}
+  .about-grid{grid-template-columns:1fr;gap:32px}
+  .actions-grid{grid-template-columns:1fr}
+  .info-cards{grid-template-columns:1fr}
+  .social-indicators{grid-template-columns:1fr}
+  .contato-buttons{flex-direction:column}
+  .btn-membro,.btn-apoiar{min-width:auto;width:100%}
+  .section{padding:64px 20px}
+  .mascote-section{padding:64px 20px}
+  .hero h1{font-size:1.9rem}
+  .hero .subheadline{font-size:1rem}
+}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
-<nav>
-  <div class="nav-logo">
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAACJkAAAJXCAYAAAA64hcSAAAw2klEQVR4nO3d6W0jO7MAUHvgDJyG83JMzstpOAa/H/OEr69GrSabW5F9DjDAXSSSzU0eVZl8eQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA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AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYvs/G2NboRVAwU0AAAAASUVORK5CYII=" alt="Rotaract Club de João Pinheiro" style="height:120px;">
+<nav class="nav">
+  <div class="nav-container">
+    <a href="#hero" class="nav-logo">
+      <img src="rotaract_logo.png" alt="Rotaract Club de João Pinheiro">
+      <span class="nav-logo-text">Rotaract João Pinheiro</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#fazemos">O Que Fazemos</a></li>
+      <li><a href="#quem-somos">Quem Somos</a></li>
+      <li><a href="#acoes">Ações</a></li>
+      <li><a href="#mascote">Mascote</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
   </div>
-  <ul class="nav-links">
-    <li><a href="#quem-somos">Quem Somos</a></li>
-    <li><a href="#o-que-fazemos">O Que Fazemos</a></li>
-    <li><a href="#mascote">Mascote</a></li>
-    <li><a href="#acoes">Ações</a></li>
-    <li><a href="#contato">Contato</a></li>
-  </ul>
 </nav>
 
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-panel">
+    <button class="mobile-menu-close" id="closeMenuBtn" aria-label="Fechar menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round">
+        <line x1="6" y1="6" x2="18" y2="18"/>
+        <line x1="18" y1="6" x2="6" y2="18"/>
+      </svg>
+    </button>
+    <a href="#fazemos">O Que Fazemos</a>
+    <a href="#quem-somos">Quem Somos</a>
+    <a href="#acoes">Ações</a>
+    <a href="#depoimentos">Depoimentos</a>
+    <a href="#mascote">Mascote</a>
+    <a href="#contato">Contato</a>
+  </div>
+</div>
+
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-inner">
-    <div class="hero-text fade-in">
-      <span class="badge">🌸 Unidos para Fazer o Bem</span>
-      <h1>Rotaract Club<br>de <span>João Pinheiro</span></h1>
-      <p class="tagline">Transformando comunidades desde 2015</p>
-      <p>Jovens comprometidos com o voluntariado, a solidariedade e a transformação da nossa cidade. Faça parte dessa rede de mudança.</p>
-      <div class="hero-stats">
-        <div class="stat">
-          <span class="stat-num">2015</span>
-          <span class="stat-label">Fundação</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num">+10</span>
-          <span class="stat-label">Anos de impacto</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num">∞</span>
-          <span class="stat-label">Sorrisos gerados</span>
-        </div>
-      </div>
-      <br>
-      <a href="#contato" class="hero-cta">Entre em contato ✨</a>
+<section class="hero" id="hero">
+  <div class="hero-content fade-in">
+    <img class="hero-logo" src="rotaract_logo.png" alt="Rotaract Club de João Pinheiro">
+    <span class="badge">🌻 Crie Impacto Duradouro</span>
+    <h1>Jovens de João Pinheiro transformando a cidade. E você, vem?</h1>
+    <p class="subheadline">Voluntariado, amizade e liderança para jovens !</p>
+    <a class="hero-cta" href="https://wa.me/5538998656271?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20Rotaract%20Club%20de%20Jo%C3%A3o%20Pinheiro%20e%20como%20participar!" target="_blank" rel="noopener">💬 Quero conhecer o Rotaract</a>
+    <p class="micro-text">📲 Resposta rápida — conheça o clube sem compromisso</p>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">2015</div><div class="stat-label">Fundação</div></div>
+      <div class="stat"><div class="stat-num">+10</div><div class="stat-label">Anos de história</div></div>
+      <div class="stat"><div class="stat-num">∞</div><div class="stat-label">Sorrisos</div></div>
     </div>
-    <div class="hero-visual fade-in">
-      <div class="hero-logo-wrap">
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAACJkAAAJXCAYAAAA64hcSAAAw2klEQVR4nO3d6W0jO7MAUHvgDJyG83JMzstpOAa/H/OEr69GrSabW5F9DjDAXSSSzU0eVZl8eQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA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AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYvs/G2NboRVAwU0AAAAASUVORK5CYII=" alt="Rotaract Club de João Pinheiro" />
-        <p style="margin-top:16px;font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#d63384;font-style:italic;">Unidos para Fazer o Bem</p>
-      </div>
+  </div>
+  <div class="hero-sunflower">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <g fill="currentColor">
+        <ellipse cx="50" cy="50" rx="8" ry="28" transform="rotate(0 50 50)"/>
+        <ellipse cx="50" cy="50" rx="8" ry="28" transform="rotate(45 50 50)"/>
+        <ellipse cx="50" cy="50" rx="8" ry="28" transform="rotate(90 50 50)"/>
+        <ellipse cx="50" cy="50" rx="8" ry="28" transform="rotate(135 50 50)"/>
+        <ellipse cx="50" cy="50" rx="8" ry="28" transform="rotate(180 50 50)"/>
+        <ellipse cx="50" cy="50" rx="8" ry="28" transform="rotate(225 50 50)"/>
+        <ellipse cx="50" cy="50" rx="8" ry="28" transform="rotate(270 50 50)"/>
+        <ellipse cx="50" cy="50" rx="8" ry="28" transform="rotate(315 50 50)"/>
+      </g>
+      <circle cx="50" cy="50" r="14" fill="currentColor"/>
+    </svg>
+  </div>
+</section>
+
+<!-- O QUE FAZEMOS -->
+<section class="section" id="fazemos">
+  <div class="divider"></div>
+  <h2 class="section-title">O Que Fazemos</h2>
+  <p class="section-subtitle">Mais do que um clube: um movimento de jovens que escolhem fazer a diferença.</p>
+  <div class="cards-grid">
+    <div class="card fade-in">
+      <div class="card-icon">🤲</div>
+      <h3>Voluntariado Social</h3>
+      <p>Ações diretas na comunidade, levando apoio, carinho e ajuda a quem mais precisa em João Pinheiro.</p>
+    </div>
+    <div class="card fade-in">
+      <div class="card-icon">🏘️</div>
+      <h3>Projetos Comunitários</h3>
+      <p>Iniciativas que transformam bairros, escolas e instituições com impacto real e duradouro.</p>
+    </div>
+    <div class="card fade-in">
+      <div class="card-icon">🌟</div>
+      <h3>Desenvolvimento de Liderança</h3>
+      <p>Formação de jovens líderes com capacitações, workshops e experiências que constroem futuro.</p>
+    </div>
+    <div class="card fade-in">
+      <div class="card-icon">🎭</div>
+      <h3>Eventos Beneficentes</h3>
+      <p>Eventos que arrecadam recursos e geram visibilidade para causas sociais da nossa cidade.</p>
+    </div>
+    <div class="card fade-in">
+      <div class="card-icon">🌍</div>
+      <h3>Rede Internacional</h3>
+      <p>Parte do Rotary International, conectamos nossos jovens a uma rede mundial de boas ações.</p>
+    </div>
+    <div class="card fade-in">
+      <div class="card-icon">💛</div>
+      <h3>Companheirismo</h3>
+      <p>Amizades verdadeiras que atravessam fronteiras e duram para sempre. Aqui você encontra sua tribo.</p>
     </div>
   </div>
 </section>
 
 <!-- QUEM SOMOS -->
-<section id="quem-somos">
-  <div class="container">
-    <div class="quem-grid">
-      <div class="fade-in">
-        <span class="section-label">Nossa história</span>
-        <div class="divider"></div>
-        <h2 class="section-title">Quem <span>Somos</span></h2>
-        <p style="color:var(--gray);line-height:1.8;font-size:1rem;margin-bottom:24px;">
-          O Rotaract Club de João Pinheiro é uma associação sem fins lucrativos, associada ao Rotary Internacional, que reúne pessoas com 18 anos ou mais, comprometidas com o voluntariado, por meio de projetos e ações sociais.
-        </p>
-        <p style="color:var(--gray);line-height:1.8;font-size:1rem;margin-bottom:28px;">
-          Estimulamos o senso de responsabilidade social, a cooperação e o compromisso com a transformação da comunidade de João Pinheiro e região.
-        </p>
-        <div class="quem-cards">
-          <div class="info-card">
-            <h4>Fundação</h4>
-            <p>05 de agosto de 2015</p>
-          </div>
-          <div class="info-card">
-            <h4>Reconhecimento RI</h4>
-            <p>24 de agosto de 2016</p>
-          </div>
-          <div class="info-card">
-            <h4>CNPJ</h4>
-            <p>59.279.285/0001-94</p>
-          </div>
-          <div class="info-card">
-            <h4>Vinculação</h4>
-            <p>Rotary Internacional</p>
-          </div>
+<section class="section" id="quem-somos">
+  <div class="divider"></div>
+  <h2 class="section-title">Quem Somos</h2>
+  <p class="section-subtitle">Uma história que começou em 2015 e segue crescendo com cada novo jovem que entra.</p>
+  <div class="about-grid">
+    <div class="about-text fade-in">
+      <h2>Nossa História</h2>
+      <p>O Rotaract Club de João Pinheiro nasceu do desejo de jovens que queriam fazer mais pela cidade. Desde 2015, somos um espaço de voluntariado, amizade e liderança.</p>
+      <p>Somos parte do Rotary International e atuamos em João Pinheiro com projetos sociais, eventos beneficentes e ações que impactam vidas reais.</p>
+      <p>Acreditamos que jovens têm o poder de transformar a realidade ao seu redor — e é isso que fazemos, todos os dias, com alegria e compromisso.</p>
+      <blockquote>
+        "O Rotaract não é só sobre ajudar o próximo — é sobre descobrir quem você é enquanto faz isso."
+      </blockquote>
+    </div>
+    <div class="fade-in">
+      <div class="social-indicators">
+        <div class="social-ind">
+          <div class="social-ind-num">10+</div>
+          <div class="social-ind-label">Membros ativos</div>
+        </div>
+        <div class="social-ind">
+          <div class="social-ind-num">50+</div>
+          <div class="social-ind-label">Ações realizadas</div>
+        </div>
+        <div class="social-ind">
+          <div class="social-ind-num">3000+</div>
+          <div class="social-ind-label">Pessoas impactadas</div>
         </div>
       </div>
-      <div class="quem-visual fade-in">
-        <blockquote>
-          "Unidos para fazer o bem — em João Pinheiro, em atividade desde junho de 2015, construindo pontes entre jovens e a comunidade."
-        </blockquote>
-        <div style="margin-top:30px;display:flex;align-items:center;justify-content:center;gap:12px;">
-          <div style="width:40px;height:2px;background:var(--rose-light);border-radius:2px;"></div>
-          <span style="font-size:0.8rem;color:var(--rose);font-weight:700;text-transform:uppercase;letter-spacing:0.1em;">Rotaract JP</span>
-          <div style="width:40px;height:2px;background:var(--rose-light);border-radius:2px;"></div>
+      <div class="info-cards">
+        <div class="info-card">
+          <strong>Fundação</strong>
+          <span>05/08/2015</span>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- O QUE FAZEMOS -->
-<section id="o-que-fazemos">
-  <div class="container">
-    <div class="fade-in" style="text-align:center;margin-bottom:10px;">
-      <span class="section-label">Nossa missão em prática</span>
-      <div class="divider" style="margin:10px auto 20px;"></div>
-      <h2 class="section-title">O Que <span>Fazemos</span></h2>
-      <p class="section-sub" style="margin:0 auto;">Atuamos em diversas frentes para transformar vidas e fortalecer nossa comunidade.</p>
-    </div>
-    <div class="fazemos-grid">
-      <div class="fazer-card fade-in">
-        <div class="fazer-icon">🤝</div>
-        <h3>Voluntariado Social</h3>
-        <p>Desenvolvemos ações voluntárias que impactam diretamente famílias e entidades da nossa cidade e região.</p>
-      </div>
-      <div class="fazer-card fade-in">
-        <div class="fazer-icon">💡</div>
-        <h3>Projetos Comunitários</h3>
-        <p>Criamos e executamos projetos que respondem às necessidades reais da comunidade de João Pinheiro.</p>
-      </div>
-      <div class="fazer-card fade-in">
-        <div class="fazer-icon">🌱</div>
-        <h3>Desenvolvimento de Liderança</h3>
-        <p>Formamos jovens líderes comprometidos com a ética, a cidadania e a responsabilidade social.</p>
-      </div>
-      <div class="fazer-card fade-in">
-        <div class="fazer-icon">🎉</div>
-        <h3>Eventos Beneficentes</h3>
-        <p>Organizamos eventos que unem diversão e solidariedade, gerando recursos para entidades locais.</p>
-      </div>
-      <div class="fazer-card fade-in">
-        <div class="fazer-icon">🌍</div>
-        <h3>Rede Internacional</h3>
-        <p>Fazemos parte de uma rede global do Rotary Internacional, ampliando nosso impacto além das fronteiras locais.</p>
-      </div>
-      <div class="fazer-card fade-in">
-        <div class="fazer-icon">💞</div>
-        <h3>Companheirismo</h3>
-        <p>Promovemos encontros e momentos de troca entre membros, fortalecendo laços e o espírito de equipe.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- MASCOTE -->
-<section id="mascote">
-  <div class="container">
-    <div class="mascote-grid">
-      <div class="mascote-img-wrap fade-in">
-        <video autoplay loop muted playsinline style="max-width:480px; width:100%; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.3)); animation: float 3s ease-in-out infinite;">
-  <source src="Design sem nome.mp4" type="video/mp4">
-</video>
-      </div>
-      <div class="mascote-text fade-in">
-        <span class="section-label">Conheça nosso mascote</span>
-        <div class="divider"></div>
-        <h2 class="section-title">Conheça o <span>Alegre!</span></h2>
-        <p>
-          Oi, eu sou o <strong>Alegre</strong>, o mascote do Rotaract Club de João Pinheiro! Alegre não é só meu nome — é o jeito que eu sou! Estou sempre com um sorriso no rosto e pronto para animar qualquer situação.
-        </p>
-        <p>
-          Sou um boi inspirado na curiosa história do <em>Boi Alegre</em>, que fugia todos os dias em frente à Igreja de Sant'Ana do Alegre, aqui em João Pinheiro. Um personagem que ficou marcado na memória da nossa cidade.
-        </p>
-        <p>
-          Sou muito animado — seja para organizar um projeto ou para juntar a galera para se divertir. Amigo para todos os momentos, não pode faltar um momento de companheirismo! E se é para transformar o mundo, eu tô dentro! 🤜🤛
-        </p>
-        <div class="mascote-traits">
-          <span class="trait">😄 Alegre</span>
-          <span class="trait">🤝 Companheiro</span>
-          <span class="trait">⚡ Animado</span>
-          <span class="trait">💪 Dedicado</span>
-          <span class="trait">🌟 Carismático</span>
-          <span class="trait">❤️ Solidário</span>
+        <div class="info-card">
+          <strong>Reconhecimento RI</strong>
+          <span>24/08/2016</span>
+        </div>
+        <div class="info-card">
+          <strong>CNPJ</strong>
+          <span>59.279.285.0001-94</span>
+        </div>
+        <div class="info-card">
+          <strong>Vinculação</strong>
+          <span>Rotary International</span>
         </div>
       </div>
     </div>
@@ -752,79 +466,129 @@
 </section>
 
 <!-- AÇÕES -->
-<section id="acoes">
-  <div class="container">
-    <div class="fade-in" style="margin-bottom:50px;">
-      <span class="section-label">Impacto real</span>
-      <div class="divider"></div>
-      <h2 class="section-title">Nossas <span>Ações</span></h2>
-      <p class="section-sub">Cada projeto é uma história de transformação. Conheça o que já realizamos.</p>
+<section class="section" id="acoes">
+  <div class="divider"></div>
+  <h2 class="section-title">Nossas Ações</h2>
+  <p class="section-subtitle">Projetos reais que mudam histórias. Participe da próxima ação!</p>
+  <div class="actions-grid">
+    <div class="action-card fade-in">
+      <h3>🍲 Feijoada 2025/2026</h3>
+      <p>Nosso grande evento beneficente que arrecada fundos para projetos sociais e reúne a comunidade em torno de uma boa causa.</p>
+      <a class="action-cta" href="https://wa.me/5538998656271?text=Ol%C3%A1%2C%20quero%20participar%20da%20pr%C3%B3xima%20Feijoada%20do%20Rotaract%20Club%20de%20Jo%C3%A3o%20Pinheiro!" target="_blank" rel="noopener">👉 Quero participar da próxima</a>
     </div>
-    <div class="acoes-grid">
-      <div class="acao-card fade-in">
-        <span class="acao-icon">🍲</span>
-        <span class="acao-year">Gestão 2025/2026</span>
-        <h3>3ª Feijoada do Rotaract</h3>
-        <p>Um almoço inesquecível realizado no domingo, 12 de abril, das 11h às 14h, no Rotary Club de João Pinheiro. Parte dos lucros foi destinada ao <strong>Centro Madre Tereza</strong>, entidade que transforma vidas em nossa cidade. Aqui a gente se reúne, se diverte e ainda faz a diferença!</p>
+    <div class="action-card fade-in">
+      <h3>❤️ Apoio Madre Tereza</h3>
+      <p>Apoio contínuo à instituição Madre Tereza, levando carinho, recursos e voluntariado para quem mais precisa.</p>
+      <a class="action-cta" href="https://wa.me/5538998656271?text=Ol%C3%A1%2C%20quero%20participar%20das%20a%C3%A7%C3%B5es%20de%20apoio%20%C3%A0%20Madre%20Tereza%20com%20o%20Rotaract%20Club%20de%20Jo%C3%A3o%20Pinheiro!" target="_blank" rel="noopener">👉 Quero participar da próxima</a>
+    </div>
+    <div class="action-card fade-in">
+      <h3>🤝 Voluntariado</h3>
+      <p>Ações voluntárias em diversas frentes: doações, visitas, campanhas e muito mais. Todo mês tem uma nova oportunidade.</p>
+      <a class="action-cta" href="https://wa.me/5538998656271?text=Ol%C3%A1%2C%20quero%20participar%20das%20a%C3%A7%C3%B5es%20de%20voluntariado%20do%20Rotaract%20Club%20de%20Jo%C3%A3o%20Pinheiro!" target="_blank" rel="noopener">👉 Quero participar da próxima</a>
+    </div>
+    <div class="action-card fade-in">
+      <h3>🎓 Formação de Líderes</h3>
+      <p>Capacitações, workshops e mentorias para formar jovens líderes prontos para transformar a sua comunidade.</p>
+      <a class="action-cta" href="https://wa.me/5538998656271?text=Ol%C3%A1%2C%20quero%20participar%20da%20Forma%C3%A7%C3%A3o%20de%20L%C3%ADderes%20do%20Rotaract%20Club%20de%20Jo%C3%A3o%20Pinheiro!" target="_blank" rel="noopener">👉 Quero participar da próxima</a>
+    </div>
+  </div>
+</section>
+
+<!-- MASCOTE -->
+<section class="mascote-section" id="mascote">
+  <div class="mascote-container">
+    <div class="mascote-visual fade-in">
+      <div class="mascote-circle">
+        <img src="Alegre_sem_fundo.gif" alt="Alegre, o mascote do Rotaract Club de João Pinheiro" class="mascote-emoji">  
       </div>
-      <div class="acao-card fade-in">
-        <span class="acao-icon">🏥</span>
-        <span class="acao-year">Ação Social</span>
-        <h3>Apoio ao Centro Madre Tereza</h3>
-        <p>O Centro Madre Tereza João Pinheiro MG é uma das entidades parceiras do Rotaract JP. Por meio de eventos e arrecadações, contribuímos com um trabalho que transforma vidas na nossa comunidade, unindo solidariedade e compromisso social.</p>
-      </div>
-      <div class="acao-card fade-in">
-        <span class="acao-icon">🌱</span>
-        <span class="acao-year">Projetos Continuados</span>
-        <h3>Voluntariado & Comunidade</h3>
-        <p>Desde a fundação em 2015, o Rotaract JP realiza projetos contínuos de voluntariado, ações em datas comemorativas, visitas a entidades locais e iniciativas que promovem o bem-estar e a cidadania em João Pinheiro.</p>
-      </div>
-      <div class="acao-card fade-in">
-        <span class="acao-icon">🎓</span>
-        <span class="acao-year">Desenvolvimento</span>
-        <h3>Formação de Líderes Jovens</h3>
-        <p>O clube promove constantemente encontros, palestras e vivências que desenvolvem habilidades de liderança, empatia e cooperação em seus membros, formando cidadãos prontos para impactar positivamente a sociedade.</p>
+      <div class="mascote-name">Alegre</div>
+      <div class="mascote-tag">Nosso mascote oficial</div>
+    </div>
+    <div class="mascote-text fade-in">
+      <h2>Conheça o Alegre </h2>
+      <p>O Alegre é o mascote do Rotaract Club de João Pinheiro. Ele representa a força, a alegria e o espírito do povo da nossa cidade — sempre disposto a ajudar e a fazer o bem.</p>
+      <p>Com o Alegre, aprendemos que fazer o bem também pode ser leve, divertido e cheio de energia. Ele está presente em cada ação, cada evento e cada sorriso que conquistamos juntos.</p>
+      <div class="mascote-traits">
+        <span class="trait">💪 Força</span>
+        <span class="trait">😊 Alegria</span>
+        <span class="trait">🤝 União</span>
+        <span class="trait">💛 Compromisso</span>
       </div>
     </div>
+  </div>
+  <div class="mascote-sunflower">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <g fill="currentColor">
+        <ellipse cx="50" cy="50" rx="8" ry="28" transform="rotate(0 50 50)"/>
+        <ellipse cx="50" cy="50" rx="8" ry="28" transform="rotate(45 50 50)"/>
+        <ellipse cx="50" cy="50" rx="8" ry="28" transform="rotate(90 50 50)"/>
+        <ellipse cx="50" cy="50" rx="8" ry="28" transform="rotate(135 50 50)"/>
+        <ellipse cx="50" cy="50" rx="8" ry="28" transform="rotate(180 50 50)"/>
+        <ellipse cx="50" cy="50" rx="8" ry="28" transform="rotate(225 50 50)"/>
+        <ellipse cx="50" cy="50" rx="8" ry="28" transform="rotate(270 50 50)"/>
+        <ellipse cx="50" cy="50" rx="8" ry="28" transform="rotate(315 50 50)"/>
+      </g>
+      <circle cx="50" cy="50" r="14" fill="currentColor"/>
+    </svg>
   </div>
 </section>
 
 <!-- CONTATO -->
-<section id="contato">
-  <div class="container">
-    <div class="contato-box fade-in">
-      <span class="section-label">Fale conosco</span>
-      <div class="divider" style="margin:10px auto 20px;"></div>
-      <h2 class="section-title">Vamos <span>Conversar?</span></h2>
-      <p>Quer saber mais sobre o Rotaract Club de João Pinheiro, participar de uma ação ou se tornar um membro? Entre em contato conosco pelo WhatsApp!</p>
-      <a href="https://wa.me/5538988660941?text=Olá%2C%20gostaria%20de%20saber%20mais%20sobre%20o%20Rotaract%20Club%20de%20João%20Pinheiro!" class="whatsapp-btn" target="_blank">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-          <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.532 5.862L.054 23.61a.75.75 0 00.924.924l5.748-1.478A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.886 0-3.655-.511-5.176-1.402l-.372-.218-3.41.876.876-3.41-.218-.372A9.958 9.958 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
-        </svg>
-        Falar pelo WhatsApp
-      </a>
-      <div class="social-links">
-        <a href="https://instagram.com/rotaractjp" target="_blank" class="social-link">
-          📸 @rotaractjp
-        </a>
-      </div>
+<section class="section" id="contato">
+  <div class="divider"></div>
+  <h2 class="section-title">Bora fazer parte?</h2>
+  <p class="section-subtitle">Escolha como você quer entrar nessa com a gente. A resposta é rápida!</p>
+  <div class="contato-box fade-in">
+    <h2>Entre em contato</h2>
+    <p>Fale com a gente agora pelo WhatsApp e descubra como participar do Rotaract Club de João Pinheiro.</p>
+    <div class="contato-buttons">
+      <a class="btn-membro" href="https://wa.me/5538998656271?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20ser%20membro%20do%20Rotaract%20Club%20de%20Jo%C3%A3o%20Pinheiro!%20Quero%20saber%20como%20participar." target="_blank" rel="noopener">🙋 Quero ser membro</a>
+      <a class="btn-apoiar" href="https://wa.me/5538998656271?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20como%20apoiar%20ou%20fazer%20doa%C3%A7%C3%B5es%20para%20o%20Rotaract%20Club%20de%20Jo%C3%A3o%20Pinheiro." target="_blank" rel="noopener">🤝 Quero apoiar/doar</a>
     </div>
+    <a class="instagram-link" href="https://instagram.com/rotaractjp" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      @rotaractjp
+    </a>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer>
-  <p>© 2025 <span>Rotaract Club de João Pinheiro</span> · Todos os direitos reservados · Associado ao Rotary Internacional</p>
-  <p style="margin-top:6px;">Feito com 💗 por quem acredita em um mundo melhor</p>
+<footer class="footer">
+  <div class="footer-logo">
+    <img src="rotaract_logo.png" alt="Rotaract Club de João Pinheiro" class="footer-logo-img">
+    <div>Rotaract Club de João Pinheiro</div>
+  </div>
+  <p>🌻 Crie Impacto Duradouro</p>
+  <p>Jovens transformando a cidade desde 2015.</p>
+  <p class="footer-copy">© 2026 Rotaract Club de João Pinheiro · Vinculado ao Rotary International</p>
 </footer>
 
+<!-- WHATSAPP FLOATING -->
+<a class="whatsapp-float" href="https://wa.me/5538998656271?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20Rotaract%20Club%20de%20Jo%C3%A3o%20Pinheiro%20e%20como%20participar!" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
 <script>
-// Intersection Observer for fade-in animations
+// MOBILE MENU
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+const closeMenuBtn = document.getElementById('closeMenuBtn');
+const menuLinks = mobileMenu.querySelectorAll('a');
+
+function openMenu(){ mobileMenu.classList.add('open'); document.body.style.overflow='hidden'; }
+function closeMenu(){ mobileMenu.classList.remove('open'); document.body.style.overflow=''; }
+
+hamburgerBtn.addEventListener('click', openMenu);
+closeMenuBtn.addEventListener('click', closeMenu);
+menuLinks.forEach(link => link.addEventListener('click', closeMenu));
+mobileMenu.addEventListener('click', (e) => { if(e.target === mobileMenu) closeMenu(); });
+
+// FADE-IN ANIMATIONS
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
+    if(entry.isIntersecting){
       entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
     }
   });
 }, { threshold: 0.12 });
